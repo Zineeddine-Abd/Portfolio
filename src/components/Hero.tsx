@@ -12,7 +12,7 @@ export function Hero() {
       className="relative mx-auto grid max-w-6xl items-center gap-10 px-6 pb-16 pt-32 sm:pt-40 md:grid-cols-[1.05fr_0.95fr] md:gap-6 md:pb-24"
     >
       {/* Left — the thesis */}
-      <div>
+      <div className="order-2 md:order-1">
         <Reveal>
           <p className="font-hand text-2xl text-accent">{t("lead")}</p>
         </Reveal>
@@ -62,7 +62,7 @@ export function Hero() {
       </div>
 
       {/* Right — the character */}
-      <div className="relative flex justify-center">
+      <div className="relative flex justify-center order-1 md:order-2">
         <div className="relative w-[min(68vw,400px)]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
