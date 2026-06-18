@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none" role="img" aria-label="Project preview placeholder">
+  <rect width="1600" height="900" fill="#F4F2EA"/>
+  <rect x="24" y="24" width="1552" height="852" rx="20" fill="#FCFBF7" stroke="#1A1A1A" stroke-opacity="0.12" stroke-width="2"/>
+  <g transform="translate(700 300)" stroke="#1A1A1A" stroke-opacity="0.5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="200" height="150" rx="14" fill="none"/>
+    <circle cx="56" cy="52" r="20" fill="none"/>
+    <path d="M12 140 72 88 112 120 152 74 192 122"/>
+  </g>
+  <text x="800" y="545" text-anchor="middle" font-family="'Space Grotesk', Inter, system-ui, sans-serif" font-size="48" font-weight="600" fill="#1A1A1A">Project preview</text>
+  <text x="800" y="596" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="28" fill="#4A4A4A">replace this image in /public</text>
+  <rect x="752" y="632" width="96" height="6" rx="3" fill="#2D4EC8"/>
+</svg>
