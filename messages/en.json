@@ -85,6 +85,8 @@
   "Projects": {
     "title": "selected works",
     "headline": "Things I've built",
+    "showMore": "Show more projects",
+    "showLess": "Show fewer projects",
     "items": [
       {
         "title": "Brekhtru",
