@@ -1,0 +1,170 @@
+{
+  "Navigation": {
+    "work": "Work",
+    "about": "About",
+    "journey": "Journey",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "lead": "I'm Zine Eddine —",
+    "headline": "a developer who turns rough ideas into",
+    "headlineAccent": "clean, shipped products.",
+    "sub": "Full-stack developer focused on AI and data engineering. I like the part where a sketch on paper becomes something people actually use.",
+    "ctaWork": "See my work",
+    "ctaContact": "Get in touch",
+    "location": "Paris · Remote available",
+    "thatsMe": "that's me"
+  },
+  "About": {
+    "title": "a little about me",
+    "headline": "I care about the",
+    "headlineAccent": "whole craft",
+    "paragraphs": [
+      "I am a 4th-year engineering student at ESIEA, majoring in Artificial Intelligence and Data Science.",
+      "Passionate about AI with a solid background in software development. I have built several projects that enabled me to independently design and implement complex software solutions, while strengthening my skills in AI, data analysis, and processing."
+    ],
+    "facts": [
+      { "label": "Based in", "value": "Paris (Remote Available)" },
+      { "label": "Focus", "value": "AI & Data Engineering" },
+      { "label": "Currently", "value": "4th-year Eng. Student at ESIEA" }
+    ]
+  },
+  "Journey": {
+    "title": "my path so far",
+    "headline": "Experience &",
+    "headlineAccent": "Education",
+    "educationTitle": "Education",
+    "experienceTitle": "Experience",
+    "education": [
+      {
+        "degree": "Computer Engineering, Major in AI and Data Science",
+        "school": "ESIEA - Paris, France",
+        "date": "September 2026",
+        "description": ""
+      },
+      {
+        "degree": "Bachelor's in Computer Science and Applications",
+        "school": "Université Paris Cité - Paris, France",
+        "date": "September 2025 - Present",
+        "description": "Ranked 9th in the cohort in semester 5."
+      },
+      {
+        "degree": "State Engineer in Computer Science, Software Engineering",
+        "school": "Université Abdelhamid Mehri Constantine 2 - Algeria",
+        "date": "September 2022 - June 2025",
+        "description": "Ranked in the top 10 of the cohort during each of the 3 years."
+      }
+    ],
+    "experiences": [
+      {
+        "role": "IT Intern",
+        "company": "Sonatrach",
+        "date": "July 2025 - August 2025",
+        "description": "Database administration - Internal network management - Team coordination - Project management."
+      },
+      {
+        "role": "Designer & Content Creator",
+        "company": "TechTalksDz",
+        "date": "July 2024 - June 2025",
+        "description": "Educational content creation - Visual identity - Post design - Account management."
+      }
+    ]
+  },
+  "Skills": {
+    "title": "the toolbox",
+    "headline": "Skills & tools",
+    "groups": [
+      { "group": "Languages", "items": ["C", "Python", "Java", "JavaScript", "SQL", "R"] },
+      { "group": "Frameworks", "items": ["React.js", "Node.js", "Express.js", "Spring Boot"] },
+      { "group": "AI & Data", "items": ["Prompt Engineering", "Machine Learning", "Pandas", "NumPy", "Matplotlib"] },
+      { "group": "Databases", "items": ["MySQL", "PostgreSQL", "Oracle", "MongoDB"] },
+      { "group": "DevOps & Tools", "items": ["Linux", "Docker", "Git", "GitHub (CI/CD)", "svn", "IntelliJ", "Jupyter", "Postman"] }
+    ]
+  },
+  "Projects": {
+    "title": "selected works",
+    "headline": "Things I've built",
+    "items": [
+      {
+        "title": "Brekhtru",
+        "blurb": "A modern application showcasing advanced development capabilities.",
+        "tags": ["Project", "Development"],
+        "year": "2026",
+        "note": "Latest build"
+      },
+      {
+        "title": "Paymo",
+        "blurb": "A payment management and transaction processing system developed in Python.",
+        "tags": ["Python", "Backend", "Data"],
+        "year": "2026"
+      },
+      {
+        "title": "Atlas-Q1",
+        "blurb": "A comprehensive TypeScript project built with a focus on modern web development.",
+        "tags": ["TypeScript", "Web"],
+        "year": "2026"
+      },
+      {
+        "title": "CoineX",
+        "blurb": "A data-driven application built with Python. Explores financial data processing and modeling.",
+        "tags": ["Python", "Data Engineering"],
+        "year": "2026"
+      },
+      {
+        "title": "Relash",
+        "blurb": "A Java-based application highlighting object-oriented design and robust architecture.",
+        "tags": ["Java", "Software"],
+        "year": "2025"
+      },
+      {
+        "title": "Distro",
+        "blurb": "A Java application designed to explore distribution and system components.",
+        "tags": ["Java", "System"],
+        "year": "2025"
+      },
+      {
+        "title": "Skedu",
+        "blurb": "A scheduling and time management tool built using Python.",
+        "tags": ["Python", "Utility"],
+        "year": "2025"
+      },
+      {
+        "title": "Moovi",
+        "blurb": "A movie and entertainment browsing web app leveraging JavaScript.",
+        "tags": ["JavaScript", "Web App"],
+        "year": "2025"
+      },
+      {
+        "title": "Devix_Store",
+        "blurb": "An e-commerce storefront built with JavaScript for an interactive shopping experience.",
+        "tags": ["JavaScript", "E-commerce"],
+        "year": "2025"
+      },
+      {
+        "title": "Qubit_Ai",
+        "blurb": "An AI-focused application designed to explore machine learning integrations and workflows.",
+        "tags": ["JavaScript", "AI", "Web"],
+        "year": "2025"
+      },
+      {
+        "title": "Stockify",
+        "blurb": "IT Asset Management System Desktop App developed in Java.",
+        "tags": ["Java", "Desktop App"],
+        "year": "2024"
+      }
+    ]
+  },
+  "Contact": {
+    "title": "open to opportunities",
+    "headline": "Ready to engineer your next",
+    "headlineAccent": "breakthrough",
+    "description": "I am actively seeking new opportunities to apply my expertise in software development, AI, and data engineering. Let's connect and discuss how I can bring value to your team and help drive your projects forward.",
+    "button": "Let's collaborate"
+  },
+  "Footer": {
+    "copyright": "Zine Eddine Abdeladim.",
+    "backToTop": "Back to top",
+    "signature": "drawn by hand · built with Next.js"
+  }
+}

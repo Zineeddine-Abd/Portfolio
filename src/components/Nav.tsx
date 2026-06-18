@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { navLinks, profile, socials, type Social } from "@/lib/content";
+import { useTranslations } from "next-intl";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -17,6 +19,7 @@ function SocialIcon({ kind, className }: { kind: Social["kind"]; className?: str
 }
 
 export function Nav() {
+  const t = useTranslations("Navigation");
   const [active, setActive] = useState<string>("");
   const [open, setOpen] = useState(false);
 
@@ -56,6 +59,7 @@ export function Nav() {
         <ul className="hidden items-center gap-7 md:flex">
           {navLinks.map((link) => {
             const isActive = active === link.href;
+            const linkKey = link.href.replace('#', '');
             return (
               <li key={link.href}>
                 <a
@@ -64,14 +68,14 @@ export function Nav() {
                     isActive ? "text-ink" : "text-pencil hover:text-ink"
                   }`}
                 >
-                  {link.label}
+                  {t(linkKey)}
                 </a>
               </li>
             );
           })}
         </ul>
 
-        {/* Socials + mobile toggle */}
+        {/* Socials + language switcher + mobile toggle */}
         <div className="flex items-center gap-1">
           <div className="hidden items-center gap-1 sm:flex">
             {socials.map((s) => (
@@ -87,6 +91,7 @@ export function Nav() {
               </a>
             ))}
           </div>
+          <LanguageSwitcher />
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -103,17 +108,20 @@ export function Nav() {
       {open && (
         <div className="mx-auto mt-2 max-w-6xl rounded-2xl border border-line bg-paper p-3 shadow-[0_8px_30px_-18px_rgba(0,0,0,0.25)] md:hidden">
           <ul className="flex flex-col">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-2.5 text-sm text-pencil transition-colors hover:bg-ink/5 hover:text-ink"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const linkKey = link.href.replace('#', '');
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-lg px-3 py-2.5 text-sm text-pencil transition-colors hover:bg-ink/5 hover:text-ink"
+                  >
+                    {t(linkKey)}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
           <div className="mt-2 flex items-center gap-1 border-t border-line pt-2">
             {socials.map((s) => (

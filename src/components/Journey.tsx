@@ -1,16 +1,20 @@
-import { education, experiences } from "@/lib/content";
 import { Reveal } from "./Reveal";
 import { Annotation } from "./Annotation";
+import { useTranslations } from "next-intl";
 
 export function Journey() {
+  const t = useTranslations("Journey");
+  const education: any[] = t.raw("education");
+  const experiences: any[] = t.raw("experiences");
+
   return (
     <section id="journey" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-20 md:py-28">
       <Reveal>
-        <p className="font-hand text-2xl text-accent">my path so far</p>
+        <p className="font-hand text-2xl text-accent">{t("title")}</p>
         <h2 className="mt-1 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-          Experience &amp;{" "}
+          {t("headline")}{" "}
           <span className="relative inline-block">
-            Education
+            {t("headlineAccent")}
             <Annotation
               variant="underline"
               delay={300}
@@ -25,7 +29,7 @@ export function Journey() {
         {/* Education Column */}
         <div>
           <Reveal delay={100}>
-            <h3 className="font-display text-2xl font-semibold text-ink">Education</h3>
+            <h3 className="font-display text-2xl font-semibold text-ink">{t("educationTitle")}</h3>
           </Reveal>
           <div className="mt-8 space-y-10">
             {education.map((edu, i) => (
@@ -47,7 +51,7 @@ export function Journey() {
         {/* Experience Column */}
         <div>
           <Reveal delay={200}>
-            <h3 className="font-display text-2xl font-semibold text-ink">Experience</h3>
+            <h3 className="font-display text-2xl font-semibold text-ink">{t("experienceTitle")}</h3>
           </Reveal>
           <div className="mt-8 space-y-10">
             {experiences.map((exp, i) => (

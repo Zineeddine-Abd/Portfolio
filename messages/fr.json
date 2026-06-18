@@ -1,0 +1,170 @@
+{
+  "Navigation": {
+    "work": "Projets",
+    "about": "À propos",
+    "journey": "Parcours",
+    "skills": "Compétences",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "lead": "Je suis Zine Eddine —",
+    "headline": "un développeur qui transforme vos idées en",
+    "headlineAccent": "produits aboutis.",
+    "sub": "Développeur Full-Stack orienté IA et data engineering. J'aime le moment où un simple croquis sur papier devient un outil utilisé par tous.",
+    "ctaWork": "Voir mes projets",
+    "ctaContact": "Me contacter",
+    "location": "Paris · Télétravail possible",
+    "thatsMe": "c'est moi"
+  },
+  "About": {
+    "title": "un peu sur moi",
+    "headline": "Je m'intéresse au",
+    "headlineAccent": "métier dans son ensemble",
+    "paragraphs": [
+      "Étudiant en licence 3 Informatique, admis en 4e année du cycle ingénieur à l'école ESIEA (majeure IA et Data Science) pour la rentrée de Septembre 2026.",
+      "Passionné par l'IA, avec une solide expérience en développement, j'ai réalisé plusieurs projets m'ayant permis de devenir autonome en conception et mise en œuvre de solutions logicielles complexes, et de renforcer mes compétences en IA, analyse et traitement de données."
+    ],
+    "facts": [
+      { "label": "Basé à", "value": "Paris (Télétravail possible)" },
+      { "label": "Focus", "value": "IA & Data Engineering" },
+      { "label": "Actuellement", "value": "Étudiant Ingénieur 4A à l'ESIEA" }
+    ]
+  },
+  "Journey": {
+    "title": "mon parcours",
+    "headline": "Expérience &",
+    "headlineAccent": "Formation",
+    "educationTitle": "Formation",
+    "experienceTitle": "Expérience",
+    "education": [
+      {
+        "degree": "Ingénieur en Informatique, Majeure intelligence artificielle et data science",
+        "school": "ESIEA - Paris, France",
+        "date": "Septembre 2026",
+        "description": ""
+      },
+      {
+        "degree": "Licence Informatique et Applications",
+        "school": "Université Paris Cité - Paris, France",
+        "date": "Septembre 2025 - Présent",
+        "description": "Classé 9e de la promotion au semestre 5."
+      },
+      {
+        "degree": "Ingénieur d'État en Informatique, spécialité Génie Logiciel",
+        "school": "Université Abdelhamid Mehri Constantine 2 - Algérie",
+        "date": "Septembre 2022 - Juin 2025",
+        "description": "Classé parmi les top 10 de la promotion lors de chacune des 3 années de cursus."
+      }
+    ],
+    "experiences": [
+      {
+        "role": "Stagiaire en informatique",
+        "company": "Sonatrach",
+        "date": "Juillet 2025 - Août 2025",
+        "description": "Administration de bases de données - Gestion du réseau interne - Coordination d'équipe - Gestion de projet."
+      },
+      {
+        "role": "Designer / Créateur de contenu",
+        "company": "TechTalksDz",
+        "date": "Juillet 2024 - Juin 2025",
+        "description": "Création de contenu éducatif - Identité visuelle - Conception de posts - Management de comptes."
+      }
+    ]
+  },
+  "Skills": {
+    "title": "boîte à outils",
+    "headline": "Compétences & Outils",
+    "groups": [
+      { "group": "Langages", "items": ["C", "Python", "Java", "JavaScript", "SQL", "R"] },
+      { "group": "Frameworks", "items": ["React.js", "Node.js", "Express.js", "Spring Boot"] },
+      { "group": "IA & Data", "items": ["Prompt Engineering", "Machine Learning", "Pandas", "NumPy", "Matplotlib"] },
+      { "group": "Bases de données", "items": ["MySQL", "PostgreSQL", "Oracle", "MongoDB"] },
+      { "group": "DevOps & Outils", "items": ["Linux", "Docker", "Git", "GitHub (CI/CD)", "svn", "IntelliJ", "Jupyter", "Postman"] }
+    ]
+  },
+  "Projects": {
+    "title": "réalisations",
+    "headline": "Choses que j'ai construites",
+    "items": [
+      {
+        "title": "Brekhtru",
+        "blurb": "Jeu de stratégie avec moteur d'IA (Minimax/Heuristiques), niveaux de difficulté, développé en Python.",
+        "tags": ["Projet", "Développement", "IA"],
+        "year": "2026",
+        "note": "Récemment publié"
+      },
+      {
+        "title": "Paymo",
+        "blurb": "Prédiction des salaires en entreprises, développée en Python (cadre d'une formation en Machine Learning).",
+        "tags": ["Python", "Machine Learning", "Data"],
+        "year": "2026"
+      },
+      {
+        "title": "Atlas-Q1",
+        "blurb": "Plateforme e-commerce multi-boutiques, développée en équipe en Next.js, Express.js.",
+        "tags": ["TypeScript", "E-commerce"],
+        "year": "2026"
+      },
+      {
+        "title": "CoineX",
+        "blurb": "Application orientée données développée en Python. Traitement et modélisation de données financières.",
+        "tags": ["Python", "Data Engineering"],
+        "year": "2026"
+      },
+      {
+        "title": "Relash",
+        "blurb": "Application Java mettant en évidence une conception orientée objet et une architecture robuste.",
+        "tags": ["Java", "Logiciel"],
+        "year": "2025"
+      },
+      {
+        "title": "Distro",
+        "blurb": "Application Java conçue pour explorer la distribution et les composants systèmes.",
+        "tags": ["Java", "Système"],
+        "year": "2025"
+      },
+      {
+        "title": "Skedu",
+        "blurb": "Outil d'automatisation pour la génération d'emplois du temps personnalisés, développé en Python.",
+        "tags": ["Python", "Automatisation"],
+        "year": "2025"
+      },
+      {
+        "title": "Moovi",
+        "blurb": "Agent d'IA de recommandation de films, développé en Python en utilisant la bibliothèque Smolagents.",
+        "tags": ["Python", "IA", "Web"],
+        "year": "2025"
+      },
+      {
+        "title": "Devix_Store",
+        "blurb": "Plateforme moderne de vente d'outils informatiques, développée en HTML/CSS/JavaScript.",
+        "tags": ["JavaScript", "E-commerce"],
+        "year": "2025"
+      },
+      {
+        "title": "Qubit_Ai",
+        "blurb": "Chatbot d'IA spécialisé en IT, développé en React.js/Express.js en utilisant l'API d'OpenAI.",
+        "tags": ["React.js", "IA", "API"],
+        "year": "2025"
+      },
+      {
+        "title": "Stockify",
+        "blurb": "Système de gestion de parc informatique des universités, développé en Java en tant que chef de projet.",
+        "tags": ["Java", "Application Bureau"],
+        "year": "2024"
+      }
+    ]
+  },
+  "Contact": {
+    "title": "ouvert aux opportunités",
+    "headline": "Prêt à concevoir votre prochaine",
+    "headlineAccent": "innovation",
+    "description": "Je suis activement à la recherche de nouvelles opportunités pour appliquer mon expertise en développement logiciel, IA et data engineering. Contactez-moi pour discuter de la manière dont je peux apporter de la valeur à votre équipe et propulser vos projets.",
+    "button": "Collaborons"
+  },
+  "Footer": {
+    "copyright": "Zine Eddine Abdeladim.",
+    "backToTop": "Retour en haut",
+    "signature": "dessiné à la main · propulsé par Next.js"
+  }
+}

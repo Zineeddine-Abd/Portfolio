@@ -2,8 +2,11 @@ import { profile, socials } from "@/lib/content";
 import { Annotation } from "./Annotation";
 import { Reveal } from "./Reveal";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "./icons";
+import { useTranslations } from "next-intl";
 
 export function Contact() {
+  const t = useTranslations("Contact");
+
   return (
     <section id="contact" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24 md:py-32">
       <div className="flex flex-col items-center justify-between gap-16 md:flex-row">
@@ -20,11 +23,11 @@ export function Contact() {
         {/* Right Side: Contact Text & Links */}
         <div className="flex w-full flex-col items-center text-center md:w-1/2 md:items-start md:text-left">
           <Reveal>
-            <p className="font-hand text-2xl text-accent">open to opportunities</p>
+            <p className="font-hand text-2xl text-accent">{t("title")}</p>
             <h2 className="mt-2 font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
-              Ready to engineer your next{" "}
+              {t("headline")}{" "}
               <span className="relative inline-block">
-                breakthrough
+                {t("headlineAccent")}
                 <Annotation
                   variant="underline"
                   delay={300}
@@ -38,7 +41,7 @@ export function Contact() {
 
           <Reveal delay={120}>
             <p className="mx-auto mt-6 max-w-md text-lg leading-relaxed text-pencil md:mx-0">
-              I am actively seeking new opportunities to apply my expertise in software development, AI, and data engineering. Let&apos;s connect and discuss how I can bring value to your team and help drive your projects forward.
+              {t("description")}
             </p>
           </Reveal>
 
@@ -48,7 +51,7 @@ export function Contact() {
                 href={`mailto:${profile.email}`}
                 className="inline-flex items-center gap-2 rounded-xl bg-ink px-7 py-3.5 text-sm font-medium text-paper transition-colors hover:bg-pencil"
               >
-                Let&apos;s collaborate
+                {t("button")}
               </a>
             </div>
           </Reveal>

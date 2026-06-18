@@ -2,8 +2,10 @@ import { profile } from "@/lib/content";
 import { Annotation } from "./Annotation";
 import { Reveal } from "./Reveal";
 import { ArrowUpRightIcon } from "./icons";
+import { useTranslations } from "next-intl";
 
 export function Hero() {
+  const t = useTranslations("Hero");
   return (
     <section
       id="top"
@@ -12,14 +14,14 @@ export function Hero() {
       {/* Left — the thesis */}
       <div>
         <Reveal>
-          <p className="font-hand text-2xl text-accent">{profile.hero.lead}</p>
+          <p className="font-hand text-2xl text-accent">{t("lead")}</p>
         </Reveal>
 
         <Reveal delay={80}>
           <h1 className="mt-2 font-display text-[2rem] font-semibold leading-[1.1] tracking-tight text-ink sm:text-5xl sm:leading-[1.08] lg:text-[3.4rem]">
-            {profile.hero.headline}{" "}
+            {t("headline")}{" "}
             <span className="relative inline-block">
-              {profile.hero.headlineAccent}
+              {t("headlineAccent")}
               <Annotation
                 variant="underline"
                 delay={650}
@@ -32,7 +34,7 @@ export function Hero() {
 
         <Reveal delay={160}>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-pencil">
-            {profile.hero.sub}
+            {t("sub")}
           </p>
         </Reveal>
 
@@ -42,20 +44,20 @@ export function Hero() {
               href="#contact"
               className="inline-flex items-center gap-2 rounded-xl bg-ink px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-pencil"
             >
-              Get in touch
+              {t("ctaContact")}
             </a>
             <a
               href="#work"
               className="group inline-flex items-center gap-2 rounded-xl border border-ink/80 px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-ink/5"
             >
-              See my work
+              {t("ctaWork")}
               <ArrowUpRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
         </Reveal>
 
         <Reveal delay={320}>
-          <p className="mt-8 text-sm text-faint">{profile.location}</p>
+          <p className="mt-8 text-sm text-faint">{t("location")}</p>
         </Reveal>
       </div>
 
@@ -73,7 +75,7 @@ export function Hero() {
           />
           {/* Hand-written margin note + arrow pointing at the character */}
           <div className="pointer-events-none absolute -left-2 top-6 hidden -rotate-6 sm:block">
-            <span className="font-hand text-xl text-pencil">that&apos;s me</span>
+            <span className="font-hand text-xl text-pencil">{t("thatsMe")}</span>
             <Annotation
               variant="arrow"
               delay={900}
