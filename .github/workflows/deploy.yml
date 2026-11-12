@@ -25,8 +25,12 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
+
+      # package-lock.json is written by npm 11; npm 10 rejects it as out of
+      # sync. Use the same major here as on the development machine.
+      - run: npm install -g npm@11
 
       # Tells the build where the site will live (origin + "/Portfolio").
       - id: pages
