@@ -1,15 +1,18 @@
+import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { profile } from "@/lib/content";
+import { asset } from "@/lib/site";
 import { Annotation } from "./Annotation";
 import { Reveal } from "./Reveal";
 import { ArrowUpRightIcon } from "./icons";
-import { useTranslations } from "next-intl";
 
 export function Hero() {
   const t = useTranslations("Hero");
+
   return (
     <section
       id="top"
-      className="relative mx-auto grid max-w-6xl items-center gap-10 px-6 pb-16 pt-32 sm:pt-40 md:grid-cols-[1.05fr_0.95fr] md:gap-6 md:pb-24"
+      className="relative mx-auto grid max-w-6xl items-center gap-8 px-6 pb-16 pt-28 sm:pt-40 md:grid-cols-[1.05fr_0.95fr] md:gap-6 md:pb-24"
     >
       {/* Left — the thesis */}
       <div className="order-2 md:order-1">
@@ -18,17 +21,10 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={80}>
-          <h1 className="mt-2 font-display text-[2rem] font-semibold leading-[1.1] tracking-tight text-ink sm:text-5xl sm:leading-[1.08] lg:text-[3.4rem]">
-            {t("headline")}{" "}
-            <span className="relative inline-block">
-              {t("headlineAccent")}
-              <Annotation
-                variant="underline"
-                delay={650}
-                strokeWidth={4}
-                className="absolute -bottom-2 left-0 h-4 w-full"
-              />
-            </span>
+          <h1 className="mt-2 font-display text-[2rem] font-semibold leading-[1.12] tracking-tight text-ink sm:text-5xl sm:leading-[1.1] lg:text-[3.4rem]">
+            {t.rich("headline", {
+              u: (chunks) => <span className="ink-underline">{chunks}</span>,
+            })}
           </h1>
         </Reveal>
 
@@ -39,20 +35,29 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={240}>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-4">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-xl bg-ink px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-pencil"
+              className="sketch-a inline-flex items-center gap-2 border-[1.5px] border-ink bg-ink px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-pencil"
             >
               {t("ctaContact")}
             </a>
             <a
               href="#work"
-              className="group inline-flex items-center gap-2 rounded-xl border border-ink/80 px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-ink/5"
+              className="sketch-b group inline-flex items-center gap-2 border-[1.5px] border-ink/80 px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-ink/5"
             >
               {t("ctaWork")}
               <ArrowUpRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
+            {profile.cvUrl && (
+              <a
+                href={asset(profile.cvUrl)}
+                download
+                className="ink-link ml-2 text-sm font-medium text-ink"
+              >
+                {t("ctaCv")}
+              </a>
+            )}
           </div>
         </Reveal>
 
@@ -61,16 +66,17 @@ export function Hero() {
         </Reveal>
       </div>
 
-      {/* Right — the character */}
-      <div className="relative flex justify-center order-1 md:order-2">
-        <div className="relative w-[min(68vw,400px)]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={profile.heroImage}
-            alt={profile.heroImageAlt}
-            width={420}
-            height={420}
-            className="float-soft h-auto w-full select-none"
+      {/* Right — the character (first on phones) */}
+      <div className="relative order-1 flex justify-center md:order-2">
+        <div className="relative w-[min(56vw,400px)]">
+          <Image
+            src={asset(profile.heroImage)}
+            alt={t("imageAlt")}
+            width={800}
+            height={800}
+            preload
+            sizes="(min-width: 768px) 400px, 56vw"
+            className="float-soft h-auto w-full select-none mix-blend-multiply"
             draggable={false}
           />
           {/* Hand-written margin note + arrow pointing at the character */}

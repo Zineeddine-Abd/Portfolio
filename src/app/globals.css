@@ -7,7 +7,7 @@
   --color-paper-2: #f4f2ea; /* slightly deeper paper for panels */
   --color-ink: #1a1a1a; /* marker black — primary text & strokes */
   --color-pencil: #4a4a4a; /* muted grey — secondary text */
-  --color-faint: #8a857a; /* low-emphasis captions */
+  --color-faint: #6e6a60; /* low-emphasis captions (AA contrast on paper) */
   --color-accent: #2d4ec8; /* ballpoint-ink blue — annotations */
   --color-line: #e7e3d8; /* hairline dividers on paper */
 
@@ -17,9 +17,24 @@
   --font-hand: var(--font-caveat);
 }
 
+/* ── Sketch shapes ────────────────────────────────────────────────────────────
+   Hand-drawn outlines without any runtime cost: each corner gets a long, flat
+   elliptical radius, so the edges bow slightly like a rectangle drawn in one
+   pass. Three variants so neighbouring boxes never look stamped. */
+@utility sketch-a {
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+@utility sketch-b {
+  border-radius: 15px 225px 15px 255px / 225px 15px 255px 15px;
+}
+@utility sketch-c {
+  border-radius: 225px 18px 255px 20px / 20px 255px 18px 225px;
+}
+
 /* ── Base ────────────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -31,21 +46,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Accessibility: honor reduced-motion globally */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
 /* Visible keyboard focus everywhere */
 :focus-visible {
   outline: 2px solid var(--color-accent);
@@ -53,14 +53,13 @@ body {
   border-radius: 2px;
 }
 
-/* ── Motion utilities ──────────────────────────────────────────────────────── */
+/* ── Motion ──────────────────────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(18px);
   transition:
     opacity 0.6s ease-out,
     transform 0.6s ease-out;
-  will-change: opacity, transform;
 }
 .reveal.is-visible {
   opacity: 1;
@@ -81,26 +80,84 @@ body {
   animation: float-soft 7s ease-in-out infinite;
 }
 
+/* ── Ink marks ───────────────────────────────────────────────────────────── */
+
+/* Pen underline for a phrase inside a heading. It is a background, cloned per
+   line, so it hugs the words even when the phrase wraps — in any language.
+   Draws itself left to right once the surrounding block is revealed. */
+.ink-underline {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 14' preserveAspectRatio='none'%3E%3Cpath d='M3 8c38-6 80 4 128 0 46-4 96 5 166-2' fill='none' stroke='%232d4ec8' stroke-width='3.5' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 0.34em;
+  padding-bottom: 0.14em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size 0.8s cubic-bezier(0.65, 0, 0.35, 1) 0.45s;
+}
+.reveal.is-visible .ink-underline {
+  background-size: 100% 0.34em;
+}
+
+/* Thin pen stroke under links: grows on hover, stays under the current one. */
+.ink-link {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' preserveAspectRatio='none'%3E%3Cpath d='M2 3.4c14-2 28 1.6 46 .2s34-1.8 50-.2' fill='none' stroke='%232d4ec8' stroke-width='2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 6px;
+  padding-bottom: 5px;
+  transition: background-size 0.25s ease;
+}
+.ink-link:hover,
+.ink-link:focus-visible,
+.ink-link[aria-current="true"] {
+  background-size: 100% 6px;
+}
+
+/* Project cards: on hover or keyboard focus a second, blue outline appears a
+   hair off-register — like going over the box again with a pen. */
+.sketch-card::before {
+  content: "";
+  position: absolute;
+  inset: -5px -4px -4px -5px;
+  border: 1.5px solid var(--color-accent);
+  border-radius: 15px 225px 15px 255px / 225px 15px 255px 15px;
+  opacity: 0;
+  transform: rotate(-0.6deg);
+  transition:
+    opacity 0.2s ease,
+    transform 0.25s ease;
+  pointer-events: none;
+}
+.sketch-card:hover::before,
+.sketch-card:focus-within::before {
+  opacity: 0.9;
+  transform: rotate(0.35deg);
+}
+
+/* ── Accessibility: honor reduced motion ─────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
   .reveal {
     opacity: 1;
     transform: none;
     transition: none;
   }
+  .ink-underline {
+    background-size: 100% 0.34em;
+    transition: none;
+  }
   .float-soft {
     animation: none;
   }
-}
-
-/* Hand-drawn link underline that grows on hover */
-.ink-link {
-  background-image: linear-gradient(var(--color-accent), var(--color-accent));
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  background-size: 0% 2px;
-  transition: background-size 0.25s ease;
-}
-.ink-link:hover,
-.ink-link:focus-visible {
-  background-size: 100% 2px;
 }

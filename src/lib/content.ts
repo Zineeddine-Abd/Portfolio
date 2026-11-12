@@ -1,51 +1,37 @@
 /* ============================================================================
- *  EDIT EVERYTHING HERE
+ *  SITE DATA — everything that is the same in every language.
  *  ---------------------------------------------------------------------------
- *  This file is the single source of truth for the whole site: every piece of
- *  text, every link, and every image path lives here. You normally never need
- *  to touch the components.
+ *  Where things live:
  *
- *  To change an IMAGE you have two options:
- *    1. Keep the path and just replace the file in /public with the same name, OR
- *    2. Drop a new file in /public and update the path here.
- *  Real screenshots (PNG/JPG/WebP) work the same way — e.g. image: "/projects/ledgerline.png".
+ *    • Text shown on the page (titles, descriptions, labels)
+ *        → messages/en.json and messages/fr.json   (keep both in sync —
+ *          the build fails if their shapes differ, see src/messages.check.ts)
  *
- *  Placeholders to replace:
- *    • profile.name / role / email / location / hero / about / facts
- *    • profile.heroImage  + profile.aboutImage        (the hand-drawn figures)
- *    • socials[].href                                  (your real profiles)
- *    • projects[].image                                (preview screenshots)
+ *    • Your name, email, links, image paths and the project list
+ *        → this file
+ *
+ *  To add a project:
+ *    1. add an entry to `projects` below (pick a short `id`)
+ *    2. add its text under "Projects" → "items" → same id, in BOTH message files
+ *    3. drop a preview in /public/projects/<id>.svg — or a real screenshot
+ *       (PNG/JPG/WebP) and point `image` at it
  * ==========================================================================*/
+
+import type { Messages } from "next-intl";
 
 export const profile = {
   name: "Zine Eddine Abdeladim",
   initials: "ZA",
-  role: "Full-Stack Developer (AI & Data Engineering)",
-  location: "Paris · Remote available",
   email: "abdeladimzineeddine@gmail.com",
 
-  // Hand-drawn figures (in /public). Replace with your own illustration anytime.
+  // Hand-drawn figures (in /public). Replace the files or change the paths.
   heroImage: "/hero-character.png",
-  heroImageAlt: "Hand-drawn illustration of a developer",
   aboutImage: "/about-avatar.png",
-  aboutImageAlt: "Hand-drawn portrait illustration",
+  contactImage: "/pc-avatar.png",
 
-  hero: {
-    lead: "I'm Zine Eddine —",
-    headline: "a developer who turns rough ideas into",
-    // The annotated phrase gets a self-drawing underline.
-    headlineAccent: "clean, shipped products.",
-    sub: "Full-stack developer focused on AI and data engineering. I like the part where a sketch on paper becomes something people actually use.",
-  },
-  about: [
-    "I am a 4th-year engineering student at ESIEA, majoring in Artificial Intelligence and Data Science.",
-    "Passionate about AI with a solid background in software development. I have built several projects that enabled me to independently design and implement complex software solutions, while strengthening my skills in AI, data analysis, and processing.",
-  ],
-  facts: [
-    { label: "Based in", value: "Paris (Remote Available)" },
-    { label: "Focus", value: "AI & Data Engineering" },
-    { label: "Currently", value: "4th-year Eng. Student at ESIEA" },
-  ],
+  // Put a PDF in /public (e.g. "/cv.pdf") and a "Download CV" button appears
+  // in the hero. Leave empty to hide it.
+  cvUrl: "",
 };
 
 export type Social = {
@@ -56,176 +42,110 @@ export type Social = {
 
 export const socials: Social[] = [
   { name: "GitHub", href: "https://github.com/Zineeddine-Abd", kind: "github" },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/zine-eddine-abdeladim-075b742b7/", kind: "linkedin" },
-  { name: "Email", href: "mailto:abdeladimzineeddine@gmail.com", kind: "mail" },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/zine-eddine-abdeladim-075b742b7/",
+    kind: "linkedin",
+  },
+  { name: "Email", href: `mailto:${profile.email}`, kind: "mail" },
 ];
 
-export const navLinks = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Journey", href: "#journey" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
-];
+/** Page sections, in the order they appear. Drives the nav and scroll-spy. */
+export const sections = ["about", "work", "journey", "skills", "contact"] as const;
+export type SectionId = (typeof sections)[number];
+
+export type ProjectId = keyof Messages["Projects"]["items"];
 
 export type Project = {
+  /** Must match a key under "Projects.items" in the message files. */
+  id: ProjectId;
   title: string;
-  blurb: string;
-  tags: string[];
   year: string;
+  /** Source code. */
   href: string;
-  /** Preview image shown on the card. Replace with a real screenshot. */
+  /** Live version, when there is one. */
+  demo?: string;
+  /** Card preview: a sketch (SVG) or a real screenshot. */
   image: string;
-  note?: string; // hand-written margin note (optional)
 };
 
 export const projects: Project[] = [
   {
+    id: "brekhtru",
     title: "Brekhtru",
-    blurb: "A modern application showcasing advanced development capabilities.",
-    tags: ["Project", "Development"],
     year: "2026",
     href: "https://github.com/Zineeddine-Abd/Brekhtru",
-    image: "/project-placeholder.svg",
-    note: "Latest build",
+    image: "/projects/brekhtru.svg",
   },
   {
+    id: "paymo",
     title: "Paymo",
-    blurb: "A payment management and transaction processing system developed in Python.",
-    tags: ["Python", "Backend", "Data"],
     year: "2026",
     href: "https://github.com/Zineeddine-Abd/Paymo",
-    image: "/project-placeholder.svg",
+    image: "/projects/paymo.svg",
   },
   {
+    id: "atlas",
     title: "Atlas-Q1",
-    blurb: "A comprehensive TypeScript project built with a focus on modern web development.",
-    tags: ["TypeScript", "Web"],
     year: "2026",
     href: "https://github.com/Zineeddine-Abd/Atlas-Q1",
-    image: "/project-placeholder.svg",
+    demo: "https://atlas-q1.vercel.app",
+    image: "/projects/atlas.svg",
   },
   {
+    id: "coinex",
     title: "CoineX",
-    blurb: "A data-driven application built with Python. Explores financial data processing and modeling.",
-    tags: ["Python", "Data Engineering"],
     year: "2026",
     href: "https://github.com/Zineeddine-Abd/CoineX",
-    image: "/project-placeholder.svg",
+    image: "/projects/coinex.svg",
   },
   {
+    id: "relash",
     title: "Relash",
-    blurb: "A Java-based application highlighting object-oriented design and robust architecture.",
-    tags: ["Java", "Software"],
     year: "2025",
     href: "https://github.com/Zineeddine-Abd/Relash",
-    image: "/project-placeholder.svg",
+    image: "/projects/relash.svg",
   },
   {
+    id: "distro",
     title: "Distro",
-    blurb: "A Java application designed to explore distribution and system components.",
-    tags: ["Java", "System"],
     year: "2025",
     href: "https://github.com/Zineeddine-Abd/Distro",
-    image: "/project-placeholder.svg",
+    image: "/projects/distro.svg",
   },
   {
+    id: "skedu",
     title: "Skedu",
-    blurb: "A scheduling and time management tool built using Python.",
-    tags: ["Python", "Utility"],
     year: "2025",
     href: "https://github.com/Zineeddine-Abd/Skedu",
-    image: "/project-placeholder.svg",
+    image: "/projects/skedu.svg",
   },
   {
+    id: "moovi",
     title: "Moovi",
-    blurb: "A movie and entertainment browsing web app leveraging JavaScript.",
-    tags: ["JavaScript", "Web App"],
     year: "2025",
     href: "https://github.com/Zineeddine-Abd/Moovi",
-    image: "/project-placeholder.svg",
+    image: "/projects/moovi.svg",
   },
   {
-    title: "Devix_Store",
-    blurb: "An e-commerce storefront built with JavaScript for an interactive shopping experience.",
-    tags: ["JavaScript", "E-commerce"],
+    id: "devix",
+    title: "Devix Store",
     year: "2025",
     href: "https://github.com/Zineeddine-Abd/Devix_Store",
-    image: "/project-placeholder.svg",
+    image: "/projects/devix.svg",
   },
   {
-    title: "Qubit_Ai",
-    blurb: "An AI-focused application designed to explore machine learning integrations and workflows.",
-    tags: ["JavaScript", "AI", "Web"],
+    id: "qubit",
+    title: "Qubit AI",
     year: "2025",
     href: "https://github.com/Zineeddine-Abd/Qubit_Ai",
-    image: "/project-placeholder.svg",
+    image: "/projects/qubit.svg",
   },
   {
+    id: "stockify",
     title: "Stockify",
-    blurb: "IT Asset Management System Desktop App developed in Java.",
-    tags: ["Java", "Desktop App"],
     year: "2024",
     href: "https://github.com/Zineeddine-Abd/Stockify",
-    image: "/project-placeholder.svg",
-  },
-];
-
-export type SkillGroup = { group: string; items: string[] };
-
-export const skills: SkillGroup[] = [
-  { group: "Languages", items: ["C", "Python", "Java", "JavaScript", "SQL", "R"] },
-  { group: "Frameworks", items: ["React.js", "Node.js", "Express.js", "Spring Boot"] },
-  { group: "AI & Data", items: ["Prompt Engineering", "Machine Learning", "Pandas", "NumPy", "Matplotlib"] },
-  { group: "Databases", items: ["MySQL", "PostgreSQL", "Oracle", "MongoDB"] },
-  { group: "DevOps & Tools", items: ["Linux", "Docker", "Git", "GitHub (CI/CD)", "svn", "IntelliJ", "Jupyter", "Postman"] },
-];
-
-export type Experience = {
-  role: string;
-  company: string;
-  date: string;
-  description: string;
-};
-
-export const experiences: Experience[] = [
-  {
-    role: "IT Intern",
-    company: "Sonatrach",
-    date: "July 2025 - August 2025",
-    description: "Database administration - Internal network management - Team coordination - Project management.",
-  },
-  {
-    role: "Designer & Content Creator",
-    company: "TechTalksDz",
-    date: "July 2024 - June 2025",
-    description: "Educational content creation - Visual identity - Post design - Account management.",
-  },
-];
-
-export type Education = {
-  degree: string;
-  school: string;
-  date: string;
-  description?: string;
-};
-
-export const education: Education[] = [
-  {
-    degree: "Computer Engineering, Major in AI and Data Science",
-    school: "ESIEA - Paris, France",
-    date: "September 2026",
-  },
-  {
-    degree: "Bachelor's in Computer Science and Applications",
-    school: "Université Paris Cité - Paris, France",
-    date: "September 2025 - Present",
-    description: "Ranked 9th in the cohort in semester 5.",
-  },
-  {
-    degree: "State Engineer in Computer Science, Software Engineering",
-    school: "Université Abdelhamid Mehri Constantine 2 - Algeria",
-    date: "September 2022 - June 2025",
-    description: "Ranked in the top 10 of the cohort during each of the 3 years.",
+    image: "/projects/stockify.svg",
   },
 ];

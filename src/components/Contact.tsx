@@ -1,41 +1,37 @@
+import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { profile, socials } from "@/lib/content";
-import { Annotation } from "./Annotation";
+import { asset } from "@/lib/site";
 import { Reveal } from "./Reveal";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "./icons";
-import { useTranslations } from "next-intl";
 
 export function Contact() {
   const t = useTranslations("Contact");
 
   return (
-    <section id="contact" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24 md:py-32">
+    <section id="contact" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
       <div className="flex flex-col items-center justify-between gap-16 md:flex-row">
-        
-        {/* Left Side: Large Frameless Image */}
+        {/* Left: large frameless illustration */}
         <Reveal className="w-full max-w-sm md:w-1/2 md:max-w-lg">
-          <img
-            src="/pc-avatar.png"
-            alt="PC Avatar"
-            className="h-auto w-full object-contain drop-shadow-xl"
+          <Image
+            src={asset(profile.contactImage)}
+            alt={t("imageAlt")}
+            width={900}
+            height={900}
+            sizes="(min-width: 768px) 500px, 90vw"
+            className="h-auto w-full select-none object-contain mix-blend-multiply"
+            draggable={false}
           />
         </Reveal>
 
-        {/* Right Side: Contact Text & Links */}
+        {/* Right: contact text & links */}
         <div className="flex w-full flex-col items-center text-center md:w-1/2 md:items-start md:text-left">
           <Reveal>
             <p className="font-hand text-2xl text-accent">{t("title")}</p>
             <h2 className="mt-2 font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
-              {t("headline")}{" "}
-              <span className="relative inline-block">
-                {t("headlineAccent")}
-                <Annotation
-                  variant="underline"
-                  delay={300}
-                  strokeWidth={4}
-                  className="absolute -bottom-1.5 left-0 h-4 w-full"
-                />
-              </span>
-              .
+              {t.rich("headline", {
+                u: (chunks) => <span className="ink-underline">{chunks}</span>,
+              })}
             </h2>
           </Reveal>
 
@@ -49,15 +45,21 @@ export function Contact() {
             <div className="mt-8 flex flex-col items-center gap-4 md:items-start">
               <a
                 href={`mailto:${profile.email}`}
-                className="inline-flex items-center gap-2 rounded-xl bg-ink px-7 py-3.5 text-sm font-medium text-paper transition-colors hover:bg-pencil"
+                className="sketch-a inline-flex items-center gap-2 border-[1.5px] border-ink bg-ink px-7 py-3.5 text-sm font-medium text-paper transition-colors hover:bg-pencil"
               >
                 {t("button")}
+              </a>
+              <a
+                href={`mailto:${profile.email}`}
+                className="ink-link text-sm text-pencil"
+              >
+                {profile.email}
               </a>
             </div>
           </Reveal>
 
           <Reveal delay={280}>
-            <div className="mt-10 flex items-center justify-center gap-2 md:justify-start">
+            <div className="mt-8 flex items-center justify-center gap-2 md:justify-start">
               {socials.map((s) => (
                 <a
                   key={s.name}
@@ -65,7 +67,7 @@ export function Contact() {
                   target={s.kind === "mail" ? undefined : "_blank"}
                   rel="noopener noreferrer"
                   aria-label={s.name}
-                  className="grid h-11 w-11 place-items-center rounded-xl border border-ink/20 text-pencil transition-colors hover:border-ink hover:text-ink"
+                  className="sketch-b grid h-11 w-11 place-items-center border-[1.5px] border-ink/30 text-pencil transition-colors hover:border-ink hover:text-ink"
                 >
                   {s.kind === "github" && <GitHubIcon className="h-5 w-5" />}
                   {s.kind === "linkedin" && <LinkedInIcon className="h-5 w-5" />}

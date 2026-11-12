@@ -1,25 +1,38 @@
 {
+  "Metadata": {
+    "title": "Zine Eddine Abdeladim — Développeur full-stack, IA & data engineering",
+    "description": "Portfolio de Zine Eddine Abdeladim, développeur full-stack orienté IA et data engineering, basé à Paris. Projets, parcours et compétences.",
+    "jobTitle": "Développeur full-stack (IA & data engineering)",
+    "ogAlt": "Zine Eddine Abdeladim — un développeur qui transforme vos idées en produits aboutis."
+  },
   "Navigation": {
-    "work": "Projets",
     "about": "À propos",
+    "work": "Projets",
     "journey": "Parcours",
     "skills": "Compétences",
-    "contact": "Contact"
+    "contact": "Contact",
+    "primary": "Principale",
+    "skip": "Aller au contenu",
+    "home": "Zine Eddine Abdeladim — retour en haut",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "switchLanguage": "Switch to English"
   },
   "Hero": {
     "lead": "Je suis Zine Eddine —",
-    "headline": "un développeur qui transforme vos idées en",
-    "headlineAccent": "produits aboutis.",
+    "headline": "un développeur qui transforme vos idées en <u>produits aboutis.</u>",
     "sub": "Développeur Full-Stack orienté IA et data engineering. J'aime le moment où un simple croquis sur papier devient un outil utilisé par tous.",
     "ctaWork": "Voir mes projets",
     "ctaContact": "Me contacter",
+    "ctaCv": "Télécharger mon CV",
     "location": "Paris · Télétravail possible",
-    "thatsMe": "c'est moi"
+    "thatsMe": "c'est moi",
+    "imageAlt": "Portrait dessiné à la main de Zine Eddine, bras croisés"
   },
   "About": {
     "title": "un peu sur moi",
-    "headline": "Je m'intéresse au",
-    "headlineAccent": "métier dans son ensemble",
+    "headline": "Je m'intéresse au métier dans son <mark>ensemble</mark>.",
+    "imageAlt": "Portrait dessiné à la main de Zine Eddine",
     "paragraphs": [
       "Étudiant en licence 3 Informatique, admis en 4e année du cycle ingénieur à l'école ESIEA (majeure IA et Data Science) pour la rentrée de Septembre 2026.",
       "Passionné par l'IA, avec une solide expérience en développement, j'ai réalisé plusieurs projets m'ayant permis de devenir autonome en conception et mise en œuvre de solutions logicielles complexes, et de renforcer mes compétences en IA, analyse et traitement de données."
@@ -30,10 +43,75 @@
       { "label": "Actuellement", "value": "Étudiant Ingénieur 4A à l'ESIEA" }
     ]
   },
+  "Projects": {
+    "title": "réalisations",
+    "headline": "Choses que j'ai construites",
+    "showMore": "Voir {count} projets de plus",
+    "showLess": "Voir moins de projets",
+    "code": "Code",
+    "demo": "Démo en ligne",
+    "sketchAlt": "Croquis à la main de {title}",
+    "items": {
+      "brekhtru": {
+        "blurb": "Jeu de stratégie avec moteur d'IA (Minimax/Heuristiques), niveaux de difficulté, développé en Python.",
+        "tags": ["Python", "IA", "Minimax"],
+        "note": "Récemment publié"
+      },
+      "paymo": {
+        "blurb": "Prédiction des salaires en entreprises, développée en Python (cadre d'une formation en Machine Learning).",
+        "tags": ["Python", "Machine Learning", "Data"],
+        "note": ""
+      },
+      "atlas": {
+        "blurb": "Plateforme e-commerce multi-boutiques, développée en équipe en Next.js, Express.js.",
+        "tags": ["TypeScript", "Next.js", "E-commerce"],
+        "note": ""
+      },
+      "coinex": {
+        "blurb": "Application orientée données développée en Python. Traitement et modélisation de données financières.",
+        "tags": ["Python", "Data Engineering"],
+        "note": ""
+      },
+      "relash": {
+        "blurb": "Application Java mettant en évidence une conception orientée objet et une architecture robuste.",
+        "tags": ["Java", "Logiciel"],
+        "note": ""
+      },
+      "distro": {
+        "blurb": "Application Java conçue pour explorer la distribution et les composants systèmes.",
+        "tags": ["Java", "Système"],
+        "note": ""
+      },
+      "skedu": {
+        "blurb": "Outil d'automatisation pour la génération d'emplois du temps personnalisés, développé en Python.",
+        "tags": ["Python", "Automatisation"],
+        "note": ""
+      },
+      "moovi": {
+        "blurb": "Agent d'IA de recommandation de films, développé en Python en utilisant la bibliothèque Smolagents.",
+        "tags": ["Python", "IA", "Web"],
+        "note": ""
+      },
+      "devix": {
+        "blurb": "Plateforme moderne de vente d'outils informatiques, développée en HTML/CSS/JavaScript.",
+        "tags": ["JavaScript", "E-commerce"],
+        "note": ""
+      },
+      "qubit": {
+        "blurb": "Chatbot d'IA spécialisé en IT, développé en React.js/Express.js en utilisant l'API d'OpenAI.",
+        "tags": ["React.js", "IA", "API"],
+        "note": ""
+      },
+      "stockify": {
+        "blurb": "Système de gestion de parc informatique des universités, développé en Java en tant que chef de projet.",
+        "tags": ["Java", "Application Bureau"],
+        "note": ""
+      }
+    }
+  },
   "Journey": {
     "title": "mon parcours",
-    "headline": "Expérience &",
-    "headlineAccent": "Formation",
+    "headline": "Expérience & <u>Formation</u>",
     "educationTitle": "Formation",
     "experienceTitle": "Expérience",
     "education": [
@@ -57,6 +135,12 @@
       }
     ],
     "experiences": [
+      {
+        "role": "Alternant Data Streaming and AI Engineer",
+        "company": "BNP Paribas",
+        "date": "Août 2026 - Présent",
+        "description": ""
+      },
       {
         "role": "Stagiaire en informatique",
         "company": "Sonatrach",
@@ -82,87 +166,12 @@
       { "group": "DevOps & Outils", "items": ["Linux", "Docker", "Git", "GitHub (CI/CD)", "svn", "IntelliJ", "Jupyter", "Postman"] }
     ]
   },
-  "Projects": {
-    "title": "réalisations",
-    "headline": "Choses que j'ai construites",
-    "showMore": "Voir plus de projets",
-    "showLess": "Voir moins de projets",
-    "items": [
-      {
-        "title": "Brekhtru",
-        "blurb": "Jeu de stratégie avec moteur d'IA (Minimax/Heuristiques), niveaux de difficulté, développé en Python.",
-        "tags": ["Projet", "Développement", "IA"],
-        "year": "2026",
-        "note": "Récemment publié"
-      },
-      {
-        "title": "Paymo",
-        "blurb": "Prédiction des salaires en entreprises, développée en Python (cadre d'une formation en Machine Learning).",
-        "tags": ["Python", "Machine Learning", "Data"],
-        "year": "2026"
-      },
-      {
-        "title": "Atlas-Q1",
-        "blurb": "Plateforme e-commerce multi-boutiques, développée en équipe en Next.js, Express.js.",
-        "tags": ["TypeScript", "E-commerce"],
-        "year": "2026"
-      },
-      {
-        "title": "CoineX",
-        "blurb": "Application orientée données développée en Python. Traitement et modélisation de données financières.",
-        "tags": ["Python", "Data Engineering"],
-        "year": "2026"
-      },
-      {
-        "title": "Relash",
-        "blurb": "Application Java mettant en évidence une conception orientée objet et une architecture robuste.",
-        "tags": ["Java", "Logiciel"],
-        "year": "2025"
-      },
-      {
-        "title": "Distro",
-        "blurb": "Application Java conçue pour explorer la distribution et les composants systèmes.",
-        "tags": ["Java", "Système"],
-        "year": "2025"
-      },
-      {
-        "title": "Skedu",
-        "blurb": "Outil d'automatisation pour la génération d'emplois du temps personnalisés, développé en Python.",
-        "tags": ["Python", "Automatisation"],
-        "year": "2025"
-      },
-      {
-        "title": "Moovi",
-        "blurb": "Agent d'IA de recommandation de films, développé en Python en utilisant la bibliothèque Smolagents.",
-        "tags": ["Python", "IA", "Web"],
-        "year": "2025"
-      },
-      {
-        "title": "Devix_Store",
-        "blurb": "Plateforme moderne de vente d'outils informatiques, développée en HTML/CSS/JavaScript.",
-        "tags": ["JavaScript", "E-commerce"],
-        "year": "2025"
-      },
-      {
-        "title": "Qubit_Ai",
-        "blurb": "Chatbot d'IA spécialisé en IT, développé en React.js/Express.js en utilisant l'API d'OpenAI.",
-        "tags": ["React.js", "IA", "API"],
-        "year": "2025"
-      },
-      {
-        "title": "Stockify",
-        "blurb": "Système de gestion de parc informatique des universités, développé en Java en tant que chef de projet.",
-        "tags": ["Java", "Application Bureau"],
-        "year": "2024"
-      }
-    ]
-  },
   "Contact": {
     "title": "ouvert aux opportunités",
-    "headline": "Prêt à concevoir votre prochaine",
-    "headlineAccent": "innovation",
+    "headline": "Prêt à concevoir votre prochaine <u>innovation</u>.",
     "description": "Je suis activement à la recherche de nouvelles opportunités pour appliquer mon expertise en développement logiciel, IA et data engineering. Contactez-moi pour discuter de la manière dont je peux apporter de la valeur à votre équipe et propulser vos projets.",
-    "button": "Collaborons"
+    "button": "Collaborons",
+    "imageAlt": "Illustration dessinée à la main de Zine Eddine codant sur un ordinateur portable"
   },
   "Footer": {
     "copyright": "Zine Eddine Abdeladim.",
